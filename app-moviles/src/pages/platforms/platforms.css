@@ -1,0 +1,53 @@
+/* pages/platforms/platforms.css */
+.platforms {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background-color: #0c0c0c;
+}
+
+.platforms__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.platforms__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Grid responsive (mobile-first) ── */
+.platforms__grid {
+  display: grid;
+  gap: 12px;
+  /* móvil portrait: 1 columna */
+  grid-template-columns: 1fr;
+}
+
+/* móvil landscape */
+@media (min-width: 481px) {
+  .platformss__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .platforms__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  .platforms__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.platforms__error {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-error);
+}
