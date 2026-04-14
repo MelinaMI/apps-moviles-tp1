@@ -1,6 +1,43 @@
-.navbar {
+#header {
   width: 100%;
-  padding: 1rem 2rem;
-  background-color: blue;
-  color: #fff;
+  background-color: var(--color-navbar-footer);  
+}
+
+#nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-lg);          
+  height: 5rem;
+  width: 100%;
+  max-width: 75rem;  
+  margin: 0 auto;
+  padding: 0 var(--space-xl);  
+  box-sizing: border-box;    
+}
+
+.navbar-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-li {
+  display: inline;
+}
+
+a.nav-link {
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-weight: var(--font-bold);
+  font-size: var(--text-base);
+}
+
+.navbar-img {
+  width: var(--space-2xl);        
+  height: var(--space-2xl);
+  border-radius: 50%; 
+  object-fit: cover;
+  
+  display: block;
 }
