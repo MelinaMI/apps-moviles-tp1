@@ -1,3 +1,32 @@
 .home-page h1 {
   font-size: 2rem;
 }
+
+#highlight-game-list {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+#highlight-game-list .game-card {
+  flex: 0 0 280px;
+}
+
+#highlight-game-list {
+  scrollbar-width: none;
+}
+
+#highlight-game-list::-webkit-scrollbar {
+  display: none;
+}
+
+#highlight-game-list {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+#highlight-game-list .game-card {
+  scroll-snap-align: start;
+}
+
