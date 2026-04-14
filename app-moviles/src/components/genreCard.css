@@ -1,0 +1,106 @@
+.genre-card {
+  position: relative;
+  border-radius: 16px; 
+  overflow: hidden;
+  border: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-primary);
+  animation: genre-fade-in 0.4s ease both;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.genre-card:hover {
+  border-color: var(--color-border-secondary);
+  transform: translateY(-4px); /* Pequeño salto al pasar el mouse */
+}
+
+/* Contenedor de la imagen y el contenido superpuesto */
+.genre-card__img-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.genre-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: blur(2px); 
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+
+.genre-card__link:hover .genre-card__img {
+  transform: scale(1.1); /* Zoom suave */
+}
+
+/* Oscurecimiento de la imagen para legibilidad */
+.genre-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Contenedor central de texto (Nombre + Contador) */
+.genre-card__info-overlay {
+  position: absolute;
+  inset: 0; /* Ocupa todo el wrapper */
+  z-index: 2;
+  
+  /* Flexbox para centrar todo */
+  display: flex;
+  flex-direction: column; /* LOS PONE UNO ABAJO DEL OTRO */
+  align-items: center;
+  justify-content: center;
+  
+  /* Espacio real entre el nombre y el contador */
+  gap: 8px; 
+  
+  padding: 20px;
+  pointer-events: none;
+}
+
+.genre-card__name {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+
+
+/* ── Animaciones y Skeletons ── */
+
+@keyframes genre-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.skeleton-box {
+  background: var(--color-background-secondary);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+}

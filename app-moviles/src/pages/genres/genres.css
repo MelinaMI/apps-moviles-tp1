@@ -1,0 +1,110 @@
+
+/* ── Layout ── */
+.genres {
+  padding: 2rem 1rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.genres__header {
+  margin-bottom: 1.5rem;
+}
+
+.genres__title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 4px;
+}
+
+.genres__subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-tertiary);
+  margin: 0;
+}
+
+/* ── Grid responsive (mobile-first) ── */
+.genres__grid {
+  display: grid;
+  gap: 12px;
+  /* móvil portrait: 1 columna */
+  grid-template-columns: 1fr;
+}
+
+/* móvil landscape */
+@media (min-width: 481px) {
+  .genres__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .genres__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  .genres__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* ── Error ── */
+.genres__error {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.genres__error p {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.genres__error button {
+  font-size: 0.875rem;
+  padding: 8px 20px;
+}
+
+/* ── Skeletons ── */
+.genre-card--skeleton {
+  pointer-events: none;
+}
+
+.skeleton-box {
+  background: var(--color-background-secondary);
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.genre-card--skeleton .skeleton-box,
+.genre-card--skeleton .skeleton-line {
+  animation: skeleton-pulse 1.4s ease infinite;
+  border-radius: 4px;
+}
+
+.skeleton-line {
+  height: 12px;
+  background: var(--color-background-secondary);
+  margin: 4px 0;
+}
+
+.skeleton-line--title {
+  width: 60%;
+  height: 14px;
+}
+
+.skeleton-line--sub {
+  width: 40%;
+}
