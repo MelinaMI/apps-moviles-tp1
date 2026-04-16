@@ -6,6 +6,7 @@ import { PlatformsPage } from './pages/platforms/platforms.js'
 import { GenresPage }    from './pages/genres/genres.js'
 import { FavoritesPage } from './pages/favorites/favorites.js';
 import { HistoryPage } from './pages/history/history.js';
+import { ContactPage } from './pages/contact/contact.js';
 import { FooterLinkBgChange } from './components/Footer/Footer.js';
 import './styles/tokens.css'
 import './styles/global.css'
@@ -24,6 +25,7 @@ registerRoute('/favorites', () => render(FavoritesPage()))
 registerRoute('/history', () => render(HistoryPage()))
 registerRoute('/platforms', () => render(PlatformsPage()))
 registerRoute('/genres', () => render(GenresPage()))
+registerRoute('/contact', () => render(ContactPage()))
 registerRoute('*', () => render(HomePage()))
 
 document.addEventListener('DOMContentLoaded', () => navigateTo(location.pathname))
