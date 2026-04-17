@@ -10,5 +10,10 @@
   },
   "devDependencies": {
     "vite": "^8.0.8"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "lucide": "^1.8.0",
+    "maplibre-gl": "^5.23.0"
   }
 }

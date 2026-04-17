@@ -16,5 +16,6 @@ export function HomePage() {
 
 function renderHighlightGames(games, container){
   games.forEach(game => container.appendChild(createGameCard(game)))
+  console.log(container);
 }
 

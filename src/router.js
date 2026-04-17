@@ -10,8 +10,9 @@ export function navigateTo(path) {
 }
 
 export function resolve(path) {
-  const handler = routes[path] ?? routes['*']
-  handler?.()
+  const cleanPath = path.split('?')[0];
+  const handler = routes[cleanPath] ?? routes['*'];
+  handler?.();
 }
 
 window.addEventListener('popstate', () => resolve(location.pathname))
