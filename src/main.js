@@ -7,6 +7,7 @@ import { GenresPage }    from './pages/genres/genres.js'
 import { FavoritesPage } from './pages/favorites/favorites.js';
 import { HistoryPage } from './pages/history/history.js';
 import { ContactPage } from './pages/contact/contact.js';
+import { DetailPage } from './pages/detail/detail.js';
 import { FooterLinkBgChange } from './components/Footer/Footer.js';
 import './styles/tokens.css'
 import './styles/global.css'
@@ -26,6 +27,12 @@ registerRoute('/history', () => render(HistoryPage()))
 registerRoute('/platforms', () => render(PlatformsPage()))
 registerRoute('/genres', () => render(GenresPage()))
 registerRoute('/contact', () => render(ContactPage()))
+registerRoute('/detail', () => {
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+
+  render(DetailPage(id));
+});
 registerRoute('*', () => render(HomePage()))
 
 document.addEventListener('DOMContentLoaded', () => navigateTo(location.pathname))

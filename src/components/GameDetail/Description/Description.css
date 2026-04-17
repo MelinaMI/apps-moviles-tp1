@@ -1,0 +1,26 @@
+.game-description {
+  position: relative;
+}
+
+.description-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.game-description.expanded .description-text {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.read-more {
+  margin-left: 65%;
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-weight: 600;
+}
