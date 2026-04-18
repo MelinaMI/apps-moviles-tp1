@@ -1,43 +1,99 @@
 #header {
   width: 100%;
-  background-color: var(--color-navbar-footer);  
+  background-color: var(--color-navbar-footer);
+  border-bottom: 1px solid var(--color-background-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 #nav-bar {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--space-lg);          
+  justify-content: space-between;
   height: 5rem;
   width: 100%;
-  max-width: 75rem;  
+  max-width: 75rem;
   margin: 0 auto;
-  padding: 0 var(--space-xl);  
-  box-sizing: border-box;    
+  padding: 0 var(--space-xl);
+  box-sizing: border-box;
 }
 
-.navbar-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.navbar-li {
-  display: inline;
-}
-
-a.nav-link {
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
   text-decoration: none;
-  color: var(--color-text-primary);
-  font-weight: var(--font-bold);
-  font-size: var(--text-base);
 }
 
 .navbar-img {
-  width: var(--space-2xl);        
+  width: var(--space-2xl);
   height: var(--space-2xl);
-  border-radius: 50%; 
+  border-radius: 50%;
   object-fit: cover;
-  
   display: block;
+}
+
+.navbar-name {
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.05em;
+}
+
+.navbar-links {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .navbar-link {
+    position: relative;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .navbar-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: width 0.25s ease;
+  }
+
+  .navbar-link:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+  }
+
+  .navbar-link:hover::after {
+    width: 60%;
+  }
+
+  .navbar-link.active {
+    color: var(--color-text-primary);
+    background-color: var(--color-background-secondary);
+  }
+
+  .navbar-link.active::after {
+    width: 60%;
+  }
 }

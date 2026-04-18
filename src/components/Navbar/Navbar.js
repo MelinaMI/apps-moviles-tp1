@@ -6,3 +6,14 @@ export function Navbar() {
   wrapper.innerHTML = navbarTemplate
   return wrapper.firstElementChild
 }
+
+export function NavbarLinkChange() {
+  const current = window.location.pathname
+  const navLinks = document.querySelectorAll('.navbar-link')
+  navLinks.forEach(link => {
+    link.classList.remove('active')
+    if (link.getAttribute('href') === current) {
+      link.classList.add('active')
+    }
+  })
+}
