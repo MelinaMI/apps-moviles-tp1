@@ -1,15 +1,6 @@
-<article class="genre-card" role="listitem">
-  <a class="genre-card_link" data-ref="link" data-link>
-    
-    <div class="genre-card_img-wrapper" data-ref="img-wrapper">
-      <img class="genre-card_img" data-ref="image" loading="lazy"/>
-
-      <div class="genre-card_overlay"></div>
-
-      <div class="genre-card_info-overlay">
-        <h2 class="genre-card_name" data-ref="name"></h2>
-        <p class="genre-card_count" data-ref="count"></p>
-      </div>
-    </div>
-  </a>
-</article>
+<template id="genre-card-template">
+  <article class="game-card">
+    <img class="game-card-img" alt="" data-ref="image" />
+    <h2 class="game-card-title" data-ref="title"></h2>
+  </article>
+</template>

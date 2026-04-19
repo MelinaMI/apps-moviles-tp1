@@ -1,46 +1,26 @@
-import './GenreCard.css'
-import templateHTML from './GenreCard.html?raw'
+import genreCardTemplate from './GenreCard.html?raw'
+import { navigateTo } from '../../router.js'
 
-let template = null;
+let template = null
 
 function initTemplate() {
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = templateHTML.trim();
-  template = wrapper.firstElementChild;
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = genreCardTemplate
+  template = wrapper.querySelector('#genre-card-template')
 }
 
-export function GenreCard(genre, index = 0) {
-  if (!template) initTemplate();
+export function createGenreCard(genre) {
+  if (!template) initTemplate()
 
-  const node = template.cloneNode(true);
+  const fragment = template.content.cloneNode(true)
+  const card = fragment.querySelector('.game-card')
+  const find = (ref) => fragment.querySelector(`[data-ref="${ref}"]`)
 
-  const find = (ref) => node.querySelector(`[data-ref="${ref}"]`);
+  find('image').src = genre.image_background || ''
+  find('image').alt = genre.name
+  find('title').textContent = genre.name
 
-  const count = genre.games_count?.toLocaleString('es-AR') ?? '—';
-  const delay = (index % 8) * 40;
+  card.addEventListener('click', () => navigateTo(`/search?genres=${genre.id}`))
 
-
-  const link = find('link');
-  link.href = `/search?genre=${genre.slug}`;
-  link.setAttribute('aria-label', `Ver juegos de ${genre.name}`);
-
-
-  const img = find('image');
-  img.src = genre.image_background ?? '';
-  img.alt = genre.name;
-
-  img.onerror = () => {
-    find('img-wrapper')?.classList.add('genre-card__img-wrapper--fallback');
-  };
-
-
-  find('name').textContent = genre.name;
-  find('count').textContent = `${count} juegos`;
-
-
-  node.style.animationDelay = `${delay}ms`;
-
-  return node;
+  return fragment
 }
-
-

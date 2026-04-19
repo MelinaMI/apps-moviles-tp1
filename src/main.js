@@ -12,27 +12,27 @@ import { FooterLinkBgChange } from './components/Footer/Footer.js';
 import './styles/tokens.css'
 import './styles/global.css'
 
-function render(pageContent) {
+async function render(pageFactory) {
   const app = document.getElementById('app')
   app.innerHTML = ''
+  const pageContent = await pageFactory()
   app.appendChild(MainLayout(pageContent))
-  FooterLinkBgChange();
+  FooterLinkBgChange()
 }
 
-registerRoute('/', () => render(HomePage()))
-registerRoute('/home', () => render(HomePage()))
-registerRoute('/search', () => render(SearchPage()))
-registerRoute('/favorites', () => render(FavoritesPage()))
-registerRoute('/history', () => render(HistoryPage()))
-registerRoute('/platforms', () => render(PlatformsPage()))
-registerRoute('/genres', () => render(GenresPage()))
-registerRoute('/contact', () => render(ContactPage()))
+registerRoute('/', () => render(HomePage))
+registerRoute('/home', () => render(HomePage))
+registerRoute('/search', () => render(SearchPage))
+registerRoute('/favorites', () => render(FavoritesPage))
+registerRoute('/history', () => render(HistoryPage))
+registerRoute('/platforms', () => render(PlatformsPage))
+registerRoute('/genres', () => render(GenresPage))
+registerRoute('/contact', () => render(ContactPage))
 registerRoute('/detail', () => {
-  const params = new URLSearchParams(location.search);
-  const id = params.get('id');
-
-  render(DetailPage(id));
-});
-registerRoute('*', () => render(HomePage()))
+  const params = new URLSearchParams(location.search)
+  const id = params.get('id')
+  render(() => DetailPage(id))
+})
+registerRoute('*', () => render(HomePage))
 
 document.addEventListener('DOMContentLoaded', () => navigateTo(location.pathname))

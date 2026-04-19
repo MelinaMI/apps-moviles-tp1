@@ -1,41 +1,37 @@
-import platformsTemplate from './platforms.html?raw'
+import platformsTemplate  from './platforms.html?raw'
+import { createPlatformCard } from '../../components/PlatformCard/PlatformCard.js'
+import { createSkeletonCard } from '../../components/SkeletonCard/SkeletonCard.js'
+import { platformService }    from '../../services/platformService.js'
 import './platforms.css'
-import { platformService } from '../../services/platformService.js'
-import { PlatformCard} from '../../components/PlatformCard/PlatformCard.js'
-import { CardSkeleton } from '../../components/CardSkeleton/CardSkeleton.js'
+
+const SKELETON_COUNT = 12
 
 export function PlatformsPage() {
   const wrapper = document.createElement('div')
   wrapper.innerHTML = platformsTemplate
-  const page = wrapper.firstElementChild
 
-  loadPlatforms(page)
+  const page = wrapper.firstElementChild
+  const grid = page.querySelector('#platforms-grid')
+
+  renderSkeletons(grid, SKELETON_COUNT)
+  loadPlatforms(grid)
 
   return page
 }
 
-async function loadPlatforms(page) {
-  const grid = page.querySelector('#platforms-grid')
-  const errorContainer = page.querySelector('#platforms-error')
-  const errorMsg = page.querySelector('#platforms-error-msg')
-  const retryBtn = page.querySelector('#platforms-retry')
+async function loadPlatforms(grid) {
+  const data = await platformService.getAll()
+  renderPlatforms(data.results, grid)
+}
 
-  grid.replaceChildren(
-    ...Array.from({ length: 8 }, (_, i) =>
-      CardSkeleton({ variant: 'platform', index: i })
-    )
+function renderPlatforms(platforms, container) {
+  container.innerHTML = ''
+  platforms.forEach(platform => container.appendChild(createPlatformCard(platform)))
+}
+
+function renderSkeletons(container, count) {
+  container.innerHTML = ''
+  Array.from({ length: count }).forEach(() =>
+    container.appendChild(createSkeletonCard())
   )
-  errorContainer.hidden = true
-
-  try {
-    const { results: platforms } = await platformService.getAll()
-    grid.replaceChildren(
-          ...platforms.map((platform, index) => PlatformCard(platform, index))
-        )
-  } catch (err) {
-    grid.innerHTML = ''
-    errorMsg.textContent = err.message || 'Error al cargar las plataformas.'
-    errorContainer.hidden = false
-    retryBtn.onclick = () => loadPlatforms(page)
-  }
 }
