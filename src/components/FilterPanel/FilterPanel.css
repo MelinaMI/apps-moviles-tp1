@@ -1,0 +1,63 @@
+.filter-panel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-sm);
+}
+
+.filter-panel-select {
+  padding: var(--space-sm) 0.6rem;
+  border-radius: var(--radius-md);
+  flex: 0 0 auto;
+  width: clamp(6rem, 20vw, 10rem);
+  border: 0.0625rem solid var(--color-background-tertiary);
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.filter-panel-select:focus {
+  outline: none;
+  border-color: var(--color-text-tertiary);
+}
+
+@media (max-width: 48rem) {
+  .filter-panel-select {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.55rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  #filter-panel-mount {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-xs);
+  }
+
+  .filter-panel {
+    overflow-x: auto;
+  }
+
+  .filter-panel-select {
+    scroll-snap-align: start;
+    width: clamp(5rem, 28vw, 7rem);
+    font-size: 0.8rem;
+    padding: 0.45rem var(--space-sm);
+  }
+
+  #filter-panel-mount::-webkit-scrollbar {
+    height: var(--space-xs);
+  }
+
+  #filter-panel-mount::-webkit-scrollbar-thumb {
+    background: var(--color-background-tertiary);
+    border-radius: 0.125rem;
+  }
+}

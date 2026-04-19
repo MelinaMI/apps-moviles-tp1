@@ -1,34 +1,37 @@
-import genresTemplate from './genres.html?raw'
+import genresTemplate     from './genres.html?raw'
+import { createGenreCard }    from '../../components/GenreCard/GenreCard.js'
+import { createSkeletonCard } from '../../components/SkeletonCard/SkeletonCard.js'
+import { genreService }       from '../../services/genreService.js'
 import './genres.css'
-import { genreService } from '../../services/genreService.js'
-import { GenreCard, GenreCardSkeleton } from '../../components/GenreCard/GenreCard.js'
+
+const SKELETON_COUNT = 12
 
 export function GenresPage() {
   const wrapper = document.createElement('div')
   wrapper.innerHTML = genresTemplate
-  const page = wrapper.firstElementChild
 
-  loadGenres(page)
+  const page = wrapper.firstElementChild
+  const grid = page.querySelector('#genres-grid')
+
+  renderSkeletons(grid, SKELETON_COUNT)
+  loadGenres(grid)
 
   return page
 }
 
-async function loadGenres(page) {
-  const grid = page.querySelector('#genres-grid')
-  const errorContainer = page.querySelector('#genres-error')
-  const errorMsg = page.querySelector('#genres-error-msg')
-  const retryBtn = page.querySelector('#genres-retry')
+async function loadGenres(grid) {
+  const data = await genreService.getAll()
+  renderGenres(data.results, grid)
+}
 
-  grid.innerHTML = Array.from({ length: 12 }, () => GenreCardSkeleton()).join('')
-  errorContainer.hidden = true
+function renderGenres(genres, container) {
+  container.innerHTML = ''
+  genres.forEach(genre => container.appendChild(createGenreCard(genre)))
+}
 
-  try {
-    const { results: genres } = await genreService.getAll()
-    grid.innerHTML = genres.map((genre, index) => GenreCard(genre, index)).join('')
-  } catch (err) {
-    grid.innerHTML = ''
-    errorMsg.textContent = err.message || 'No se pudieron cargar los géneros. Revisá tu conexión.'
-    errorContainer.hidden = false
-    retryBtn.onclick = () => loadGenres(page)
-  }
+function renderSkeletons(container, count) {
+  container.innerHTML = ''
+  Array.from({ length: count }).forEach(() =>
+    container.appendChild(createSkeletonCard())
+  )
 }

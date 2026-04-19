@@ -1,5 +1,48 @@
-#game-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+.search-page {
+  padding: var(--space-md);
+}
+
+.search-page-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: 1.25rem;
+}
+
+#filter-panel-mount {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-sm);
+}
+
+#game-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 30rem) {
+  .search-page {
+    padding: var(--space-lg);
+  }
+  
+  #game-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 48rem) {
+  .search-page {
+    padding: var(--space-xl);
+  }
+  
+  #game-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  #game-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

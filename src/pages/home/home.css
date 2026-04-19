@@ -1,32 +1,101 @@
-.home-page h1 {
-  font-size: 2rem;
-}
-
-#highlight-game-list {
+.home-page {
+  padding: 1.5rem;
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 12px;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-#highlight-game-list .game-card {
-  flex: 0 0 280px;
+.home-search-redirect {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
 }
 
-#highlight-game-list {
-  scrollbar-width: none;
+.home-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-#highlight-game-list::-webkit-scrollbar {
-  display: none;
+.home-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-#highlight-game-list {
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+.home-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
 }
 
-#highlight-game-list .game-card {
-  scroll-snap-align: start;
+.home-section-link {
+  font-size: .875rem;
+  color: #999;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
+.home-section-link:hover {
+  color: #fff;
+}
+
+.home-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .75rem;
+}
+
+@media (min-width: 640px) {
+  .home-section-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .home-page {
+    padding: 2rem 3rem;
+  }
+
+  .home-section-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-section-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .home-section-grid.home-section-grid--wide {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .home-section-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: .75rem;
+    padding-bottom: .5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .home-section-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-section-grid .game-card {
+    flex: 0 0 150px;
+    width: 150px;
+  }
+}
