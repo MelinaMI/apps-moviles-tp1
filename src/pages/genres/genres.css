@@ -1,60 +1,28 @@
 
-/* ── Layout ── */
 .genres {
   padding: 2rem 1rem 3rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.genres__header {
+.genres_header {
   margin-bottom: 1.5rem;
 }
 
-.genres__title {
+.genres_title {
   font-size: 1.75rem;
   font-weight: 500;
   color: var(--color-text-primary);
   margin: 0 0 4px;
 }
 
-.genres__subtitle {
+.genres_subtitle {
   font-size: 0.875rem;
   color: var(--color-text-tertiary);
   margin: 0;
 }
 
-/* ── Grid responsive (mobile-first) ── */
-.genres__grid {
-  display: grid;
-  gap: 12px;
-  /* móvil portrait: 1 columna */
-  grid-template-columns: 1fr;
-}
-
-/* móvil landscape */
-@media (min-width: 481px) {
-  .genres__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* tablet */
-@media (min-width: 768px) {
-  .genres__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* desktop */
-@media (min-width: 1024px) {
-  .genres__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-
-/* ── Error ── */
-.genres__error {
+.genres_error {
   text-align: center;
   padding: 2rem;
   color: var(--color-text-secondary);
@@ -64,47 +32,39 @@
   gap: 1rem;
 }
 
-.genres__error p {
+.genres_error p {
   margin: 0;
   font-size: 0.9375rem;
 }
 
-.genres__error button {
+.genres_error button {
   font-size: 0.875rem;
   padding: 8px 20px;
 }
 
-/* ── Skeletons ── */
-.genre-card--skeleton {
-  pointer-events: none;
+.genres_grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
 }
 
-.skeleton-box {
-  background: var(--color-background-secondary);
+@media (min-width: 481px) {
+  .genres_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@keyframes skeleton-pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+@media (min-width: 768px) {
+  .genres_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.genre-card--skeleton .skeleton-box,
-.genre-card--skeleton .skeleton-line {
-  animation: skeleton-pulse 1.4s ease infinite;
-  border-radius: 4px;
+
+@media (min-width: 1024px) {
+  .genres_grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-.skeleton-line {
-  height: 12px;
-  background: var(--color-background-secondary);
-  margin: 4px 0;
-}
 
-.skeleton-line--title {
-  width: 60%;
-  height: 14px;
-}
-
-.skeleton-line--sub {
-  width: 40%;
-}
