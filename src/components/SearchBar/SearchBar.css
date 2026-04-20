@@ -21,7 +21,7 @@
   border: .0625rem solid var(--color-background-tertiary);
   background: var(--color-text-primary);
   border-radius: 5rem;
-  color: var(--color-text-primary);
+  color: var(--color-text-inverse);
   font-size: var(--text-base);
   font-family: var(--font-sans);
 }

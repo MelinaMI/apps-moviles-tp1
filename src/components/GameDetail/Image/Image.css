@@ -25,25 +25,21 @@
     rgb(0, 0, 0),
     transparent 90%
   );
-
+  border-radius: 14px;
   z-index: 1;
 }
 
-  /* título encima */
 .hero-title {
   position: absolute;
   bottom: 16px;
   left: 16px;
-
   z-index: 2;
-
   color: white;
   font-size: 22px;
   font-weight: 800;
   margin: 0;
 }
 
-  /* ocultás header en mobile (IMPORTANTE) */
   .game-detail_header {
     display: none;
   }
