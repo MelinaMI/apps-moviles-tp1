@@ -1,0 +1,51 @@
+<div class="wishlist-modal hidden" data-ref="modal">
+  <div class="wishlist-content">
+
+    <h2 class="wishlist-title">Add to favorites</h2>
+
+    <div class="wishlist-body">
+
+      <div class="field-group">
+        <label class="field-label">Priority</label>
+        <div class="chip-group" data-ref="priority-chips">
+          <button type="button" class="chip" data-value="1">1</button>
+          <button type="button" class="chip" data-value="2">2</button>
+          <button type="button" class="chip" data-value="3">3</button>
+          <button type="button" class="chip" data-value="4">4</button>
+          <button type="button" class="chip" data-value="5">5</button>
+        </div>
+        <input type="hidden" name="priority" data-ref="priority-input" />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Category</label>
+        <div class="custom-select" data-ref="custom-select">
+          <button type="button" class="select-trigger" data-ref="select-trigger">
+            <span data-ref="select-label">Select a category</span>
+            <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <ul class="select-dropdown" data-ref="select-dropdown">
+            <li class="select-option" data-value="I want to play it">I want to play it</li>
+            <li class="select-option" data-value="Playing">Playing</li>
+            <li class="select-option" data-value="To be finished">To be finished</li>
+          </ul>
+        </div>
+        <input type="hidden" name="category" data-ref="category-input" />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Note <span class="optional">(optional)</span></label>
+        <textarea name="note" class="wishlist-textarea" maxlength="200" placeholder="Add a note..."></textarea>
+      </div>
+
+    </div>
+
+    <div class="wishlist-actions">
+      <button type="button" class="btn-cancel" data-ref="cancel">Cancel</button>
+      <button type="button" class="btn-save" data-ref="submit">Save</button>
+    </div>
+
+  </div>
+</div>

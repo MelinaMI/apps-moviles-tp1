@@ -1,5 +1,7 @@
 .search-page {
   padding: var(--space-md);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .search-page-controls {

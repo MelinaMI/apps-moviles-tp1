@@ -19,6 +19,7 @@ export function GenresPage() {
   return page
 }
 
+
 async function loadGenres(grid) {
   const data = await genreService.getAll()
   renderGenres(data.results, grid)

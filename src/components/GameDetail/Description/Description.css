@@ -1,12 +1,15 @@
 .game-description {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .description-text {
+  width: 100%;
+  text-align: left;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
-
   overflow: hidden;
 }
 
@@ -16,11 +19,12 @@
 }
 
 .read-more {
-  margin-left: 65%;
   margin-top: 8px;
+  display: block;
   background: none;
   border: none;
   color: var(--color-text-secondary);
   cursor: pointer;
   font-weight: 600;
+  margin-left: auto;
 }

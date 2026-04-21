@@ -23,4 +23,5 @@ export function createPlatformCard(platform) {
   card.addEventListener('click', () => navigateTo(`/search?platforms=${platform.id}`))
 
   return fragment
+
 }

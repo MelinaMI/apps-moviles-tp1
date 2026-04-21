@@ -4,18 +4,21 @@
   --color-background: #0c0c0c;
   --color-background-secondary: #161616;
   --color-background-tertiary: #4b4b4b;
+  --color-background-quaternary: #202020;
   --color-surface: #e9eef2;
   --color-surface-muted: #dfe4e8;
   --color-navbar-footer: #1B1B1B;
 
   --color-text-primary: #ffffff;
   --color-text-secondary: #e9eef2;
-  --color-text-tertiary: #5c5e60;
+  --color-text-tertiary: #94949b;
   --color-text-inverse: #161616;
+  
 
   --color-primary: #2563eb;
   --color-primary-hover: #1d4ed8;
   --color-border: #e5e7eb;
+  --color-line:#ffffff12;
   --color-error: #dc2626;
   --color-success: #16a34a;
 
