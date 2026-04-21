@@ -1,60 +1,44 @@
 .platform-card {
-  background: var(--color-background-secondary);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.platform-card:hover {
-  transform: translateY(-5px);
-  border-color: #3b82f6;
-}
-
-.platform-card_img-wrapper {
   position: relative;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: .75rem;
   overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 16 / 9;
+  min-width: 12.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-.platform-card_img {
+.platform-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 .625rem 1.875rem rgba(0, 0, 0, 0.6);
+}
+.platform-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  display: block;
+  transition: transform 0.4s ease;
 }
-
-.platform-card_info-overlay {
+.platform-card:hover .platform-card-img {
+  transform: scale(1.08);
+}
+.platform-card-overlay {
   position: absolute;
-  z-index: 2;
-  text-align: center;
-  padding: 15px;
-  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
 }
-
-.platform-card_name {
-  color: white;
-  font-size: 1.6rem;
-  font-weight: 900;
-  text-transform: uppercase;
+.platform-card-title {
+  position: absolute;
+  bottom: .75rem;
+  left: .875rem;
   margin: 0;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-}
-
-.platform-card_year {
-  color: #3b82f6;
-  font-size: 0.8rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: 800;
   text-transform: uppercase;
-}
-
-.platform-card_footer {
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.2);
-  text-align: center;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow: 0 .125rem .5rem rgba(0, 0, 0, 0.8);
 }

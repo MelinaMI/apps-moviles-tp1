@@ -1,6 +1,6 @@
 import headerTemplate from './Header.html?raw'
 import './Header.css'
-import { addFavoriteGame, removeFavoriteGame, isFavoriteGame } from '../../../services/favoriteService.js'
+import { addFavoriteGame, removeFavoriteGame, isFavoriteGame } from '../../../storage/favoriteStorage.js'
 import { WishlistForm } from '../../WishlistForm/WishlistForm.js'
 
 let template = null;

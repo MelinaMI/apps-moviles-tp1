@@ -1,6 +1,18 @@
 <template id="game-card-template">
-    <article class="game-card">
-        <img class="game-card-img" alt="" data-ref="image">
+  <article class="game-card">
+    <img class="game-card-img" alt="" data-ref="image">
+    <div class="game-card-body">
+      <div class="game-card-info">
         <h2 class="game-card-title" data-ref="title"></h2>
-    </article>
+        <span class="game-card-genre" data-ref="genre"></span>
+      </div>
+      <div class="game-card-footer">
+        <span class="game-card-rating">
+          <span class="game-card-star">★</span>
+          <span data-ref="rating"></span>
+        </span>
+        <button class="game-card-btn">view</button>
+      </div>
+    </div>
+  </article>
 </template>

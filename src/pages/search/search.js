@@ -80,12 +80,12 @@ export async function SearchPage() {
 }
 
 function buildParams({ search, genres, stores, platforms, ordering, page }) {
-  const params = { page, pageSize: PAGE_SIZE }
-  if (search)    params.search    = search
-  if (genres)    params.genres    = genres
-  if (stores)    params.stores    = stores
+  const params = { page, page_size: PAGE_SIZE }
+  if (search) params.search = search
+  if (genres) params.genres = genres
+  if (stores) params.stores = stores
   if (platforms) params.platforms = platforms
-  if (ordering)  params.ordering  = ordering
+  if (ordering) params.ordering = ordering
   return params
 }
 

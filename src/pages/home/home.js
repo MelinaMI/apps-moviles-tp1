@@ -36,9 +36,9 @@ export async function HomePage() {
   const genresGrid    = page.querySelector('#home-genres-grid')
   const platformsGrid = page.querySelector('#home-platforms-grid')
 
-  renderSkeletons(gamesGrid,     GAMES_PREVIEW_SIZE)
-  renderSkeletons(genresGrid,    GENRES_PREVIEW_SIZE)
-  renderSkeletons(platformsGrid, PLATFORMS_PREVIEW_SIZE)
+renderSkeletons(gamesGrid, GAMES_PREVIEW_SIZE, 'game')
+renderSkeletons(genresGrid, GENRES_PREVIEW_SIZE, 'wide')
+renderSkeletons(platformsGrid, PLATFORMS_PREVIEW_SIZE, 'wide')
 
   loadGamesPreview(gamesGrid)
   loadGenresPreview(genresGrid)
@@ -90,9 +90,9 @@ async function loadPlatformsPreview(container) {
   data.results.forEach(platform => container.appendChild(createPlatformCard(platform)))
 }
 
-function renderSkeletons(container, count) {
-  container.innerHTML = ''
+function renderSkeletons(container, count, type = 'game') {
+  container.innerHTML = '';
   Array.from({ length: count }).forEach(() =>
-    container.appendChild(createSkeletonCard())
-  )
+    container.appendChild(createSkeletonCard(type))
+  );
 }

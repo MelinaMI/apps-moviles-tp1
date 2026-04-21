@@ -20,18 +20,18 @@ export function createFavoriteCard(game, onRemove) {
   const clone = template.content.cloneNode(true);
   const node = clone.firstElementChild;
 
-  const img      = node.querySelector('.fav-img');
-  const title    = node.querySelector('.fav-title');
+  const img = node.querySelector('.fav-img');
+  const title = node.querySelector('.fav-title');
   const priority = node.querySelector('.fav-priority');
   const category = node.querySelector('.fav-category');
-  const noteRow  = node.querySelector('.fav-note-row');
-  const note     = node.querySelector('.fav-note');
-  const heart    = node.querySelector('.fav-heart');
+  const noteRow = node.querySelector('.fav-note-row');
+  const note = node.querySelector('.fav-note');
+  const heart = node.querySelector('.fav-heart');
 
   img.src = game.image;
   img.alt = game.name;
 
-  title.textContent    = game.name;
+  title.textContent = game.name;
   priority.textContent = game.priority;
   category.textContent = game.category;
 
@@ -41,7 +41,14 @@ export function createFavoriteCard(game, onRemove) {
   }
 
   heart.addEventListener('click', () => {
+    e.stopPropagation();
     onRemove?.(game.id);
+  });
+
+  node.style.cursor = 'pointer';
+  node.addEventListener('click', () => {
+    history.pushState(null, '', `/detail?id=${game.id}`);
+    window.dispatchEvent(new PopStateEvent('popstate'));
   });
 
   return node;

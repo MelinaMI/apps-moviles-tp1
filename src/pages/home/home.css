@@ -31,6 +31,25 @@
   margin: 0;
 }
 
+.home-section-grid--wide {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: .75rem;
+  padding-bottom: .5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.home-section-grid--wide::-webkit-scrollbar {
+  display: none;
+}
+.home-section-grid--wide .genre-card,
+.home-section-grid--wide .platform-card,
+.home-section-grid--wide .skeleton-card--wide {
+  flex: 0 0 220px;
+  width: 220px;
+}
+
 .home-section-link {
   font-size: .875rem;
   color: #999;

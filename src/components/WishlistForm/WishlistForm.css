@@ -87,6 +87,11 @@
   background: #ffffff1a;
 }
 
+.chip.selected {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 .custom-select {
   position: relative;
 }

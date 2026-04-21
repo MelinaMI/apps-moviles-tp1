@@ -1,8 +1,8 @@
 import favoritesTemplate from './favorites.html?raw';
 import './favorites.css';
 
-import { getFavoriteGames, removeFavoriteGame } from '../../services/favoriteService.js';
-import { createFavoriteCard } from '../../Components/FavoriteCard/FavoriteCard.js';
+import { getFavoriteGames, removeFavoriteGame } from '../../storage/favoriteStorage.js';
+import { createFavoriteCard } from '../../components/FavoriteCard/FavoriteCard.js';
 
 export function FavoritesPage() {
   const wrapper = document.createElement('div');
@@ -34,6 +34,8 @@ function renderFavorites(root) {
       removeFavoriteGame(id);
       renderFavorites(root);
     });
+
+
 
     listContainer.appendChild(card);
   });

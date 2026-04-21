@@ -11,8 +11,7 @@ function initTemplate() {
 }
 
 export function createGameCard(game) {
-  if (!template) 
-    initTemplate();
+  if (!template) initTemplate();
 
   const fragment = template.content.cloneNode(true);
   const card = fragment.querySelector('.game-card');
@@ -21,10 +20,11 @@ export function createGameCard(game) {
   find('image').src = game.background_image || '';
   find('image').alt = game.name;
   find('title').textContent = game.name;
-  
-  card.addEventListener('click', () => {
-      navigateTo(`/detail?id=${game.id}`);
-    });
+  find('rating').textContent = game.rating?.toFixed(1) ?? '—';
+  find('genre').textContent = game.genres?.[0]?.name ?? '';
+  card.style.setProperty('--card-bg', `url(${game.background_image})`);
+
+  card.addEventListener('click', () => navigateTo(`/detail?id=${game.id}`));
 
   return fragment;
 }

@@ -7,6 +7,7 @@ import { Description } from '../../components/GameDetail/Description/Description
 import { Info } from '../../components/GameDetail/Info/Info.js';
 import { Platforms } from '../../components/GameDetail/Platform/Platform.js';
 import { Links } from '../../components/GameDetail/Links/Links.js';
+import { saveToHistory } from '../../storage/historyStorage.js';
 
 export function DetailPage(id) {
   const container = document.createElement('div');
@@ -46,6 +47,9 @@ function renderGame(game, container) {
 
   wrapper.appendChild(content);
   mountPoint.appendChild(wrapper);
+  
+  saveToHistory(game);
+  
 }
 
 function BackButton() {

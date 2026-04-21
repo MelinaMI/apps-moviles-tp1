@@ -1,15 +1,19 @@
-import skeletonCardTemplate from './SkeletonCard.html?raw'
-import './SkeletonCard.css'
+import skeletonCardTemplate from './SkeletonCard.html?raw';
+import './SkeletonCard.css';
 
-let template = null
+let template = null;
+let templateWide = null;
 
-function buildTemplate() {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = skeletonCardTemplate
-  return wrapper.querySelector('#skeleton-card-template')
+function buildTemplates() {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = skeletonCardTemplate;
+  template     = wrapper.querySelector('#skeleton-card-template');
+  templateWide = wrapper.querySelector('#skeleton-card-wide-template');
 }
 
-export function createSkeletonCard() {
-  if (!template) template = buildTemplate()
-  return template.content.cloneNode(true)
+export function createSkeletonCard(type = 'game') {
+  if (!template) buildTemplates();
+  return type === 'wide'
+    ? templateWide.content.cloneNode(true)
+    : template.content.cloneNode(true);
 }

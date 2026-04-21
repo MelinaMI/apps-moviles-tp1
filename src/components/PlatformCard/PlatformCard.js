@@ -1,27 +1,27 @@
-import platformCardTemplate from './PlatformCard.html?raw'
-import { navigateTo } from '../../router.js'
+import platformCardTemplate from './PlatformCard.html?raw';
+import './PlatformCard.css';
+import { navigateTo } from '../../router.js';
 
-let template = null
+let template = null;
 
 function initTemplate() {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = platformCardTemplate
-  template = wrapper.querySelector('#platform-card-template')
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = platformCardTemplate;
+  template = wrapper.querySelector('#platform-card-template');
 }
 
 export function createPlatformCard(platform) {
-  if (!template) initTemplate()
+  if (!template) initTemplate();
 
-  const fragment = template.content.cloneNode(true)
-  const card = fragment.querySelector('.game-card')
-  const find = (ref) => fragment.querySelector(`[data-ref="${ref}"]`)
+  const fragment = template.content.cloneNode(true);
+  const card = fragment.querySelector('.platform-card');
+  const find = (ref) => fragment.querySelector(`[data-ref="${ref}"]`);
 
-  find('image').src = platform.image_background || ''
-  find('image').alt = platform.name
-  find('title').textContent = platform.name
+  find('image').src = platform.image_background || '';
+  find('image').alt = platform.name;
+  find('title').textContent = platform.name;
 
-  card.addEventListener('click', () => navigateTo(`/search?platforms=${platform.id}`))
+  card.addEventListener('click', () => navigateTo(`/search?platforms=${platform.id}`));
 
-  return fragment
-
+  return fragment;
 }
