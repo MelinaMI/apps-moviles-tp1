@@ -24,16 +24,6 @@ export function isFavoriteGame(gameId) {
     return favorites.some(g => g.id === gameId);
 }   
 
-export function toggleFavoriteGame(game, extraData = {}) {
-    const favorites = getFavoriteGames();
-    const isFavorite = favorites.some(g => g.id === game.id);
-    const updatedFavorites = isFavorite 
-      ? favorites.filter(g => g.id !== game.id)
-      : [...favorites, mapGame(game, extraData)];
-    localStorage.setItem(key, JSON.stringify(updatedFavorites)); 
-    return !isFavorite;
-}
-
 export function hasFavorites() {
   return getFavoriteGames().length > 0;
 }   
