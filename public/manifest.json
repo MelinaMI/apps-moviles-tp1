@@ -1,0 +1,25 @@
+{
+    "name": "GameBox",
+    "short_name": "GBX",
+    "description": "Aplicación para buscar, guardar y ver tus juegos favoritos",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#0F0F0F",
+    "theme_color": "#0F0F0F",
+    "icons": [
+    {
+    "src": "/icons/web-app-manifest-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "maskable any"
+    },
+    {
+    "src": "/icons/web-app-manifest-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any"
+    }
+    ]
+}

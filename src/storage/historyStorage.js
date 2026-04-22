@@ -28,7 +28,6 @@ export function clearHistory() {
   localStorage.removeItem('history');
 }
 
-
 function stripHTML(html) {
   const div = document.createElement('div');
   div.innerHTML = html;
