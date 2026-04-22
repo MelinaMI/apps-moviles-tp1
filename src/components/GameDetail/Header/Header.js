@@ -23,7 +23,6 @@ export function Header(game) {
   const favBtn = find('favorite-btn');
   const icon = favBtn.querySelector('i');
 
-  // ✅ WishlistForm se monta solo en body — no hace falta node.appendChild
   const wishlistForm = WishlistForm({
     game,
     onSubmit: ({ game, extraData }) => {

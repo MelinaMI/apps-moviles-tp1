@@ -40,7 +40,7 @@ export function createFavoriteCard(game, onRemove) {
     noteRow.style.display = '';
   }
 
-  heart.addEventListener('click', () => {
+  heart.addEventListener('click', (e) => {
     e.stopPropagation();
     onRemove?.(game.id);
   });

@@ -21,10 +21,8 @@ export function WishlistForm({ game, onSubmit }) {
   const priorityInput = find('priority-input');
   const categoryInput = find('category-input');
 
-  // ✅ Montar directamente en body para que se superponga a todo
   document.body.appendChild(modal);
 
-  // ── Chips de prioridad ──────────────────────────────────────────
   const chips = node.querySelectorAll('[data-ref="priority-chips"] .chip');
 
   chips.forEach(chip => {
@@ -35,7 +33,6 @@ export function WishlistForm({ game, onSubmit }) {
     });
   });
 
-  // ── Dropdown custom de categoría ────────────────────────────────
   const selectTrigger  = find('select-trigger');
   const selectDropdown = find('select-dropdown');
   const selectLabel    = find('select-label');
@@ -64,7 +61,6 @@ export function WishlistForm({ game, onSubmit }) {
     selectTrigger.classList.remove('open');
   });
 
-  // ── Open / Close ────────────────────────────────────────────────
   function open() {
     modal.classList.remove('hidden');
   }
@@ -84,7 +80,6 @@ export function WishlistForm({ game, onSubmit }) {
     if (textarea) textarea.value = '';
   }
 
-  // ✅ destroy: quitar el modal del DOM cuando ya no se necesite
   function destroy() {
     document.body.removeChild(modal);
   }
@@ -101,11 +96,11 @@ export function WishlistForm({ game, onSubmit }) {
     const note = node.querySelector('textarea[name="note"]').value.trim();
 
     if (!priority) {
-      alert('Seleccioná una prioridad');
+      alert('Select a priority');
       return;
     }
     if (!category) {
-      alert('Seleccioná una categoría');
+      alert('Select a category');
       return;
     }
 
@@ -113,6 +108,5 @@ export function WishlistForm({ game, onSubmit }) {
     close();
   });
 
-  // ⚠️ Ya NO retornamos element — el modal está en el body, no hace falta montarlo afuera
   return { open, close, destroy };
 }
