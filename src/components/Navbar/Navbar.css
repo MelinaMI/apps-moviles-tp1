@@ -88,11 +88,6 @@
     width: 60%;
   }
 
-  .navbar-link.active {
-    color: var(--color-text-primary);
-    background-color: var(--color-background-secondary);
-  }
-
   .navbar-link.active::after {
     width: 60%;
   }

@@ -8,6 +8,7 @@ import { FavoritesPage } from './pages/favorites/favorites.js';
 import { HistoryPage } from './pages/history/history.js';
 import { ContactPage } from './pages/contact/contact.js';
 import { DetailPage } from './pages/detail/detail.js';
+import { NavbarLinkChange } from './components/Navbar/Navbar.js';
 import { FooterLinkBgChange } from './components/Footer/Footer.js';
 import './styles/tokens.css'
 import './styles/global.css'
@@ -17,6 +18,7 @@ async function render(pageFactory) {
   app.innerHTML = ''
   const pageContent = await pageFactory()
   app.appendChild(MainLayout(pageContent))
+  NavbarLinkChange()
   FooterLinkBgChange()
 }
 

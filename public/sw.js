@@ -1,13 +1,12 @@
-const CACHE_NAME = 'gamebox-shell'; 
-const API_CACHE = 'gamebox-api'
+const CACHE_NAME = 'gamebox-v1'; 
 
 const SHELL_RESOURCES = [ 
   '/', 
+  '/index.html',
   '/manifest.json',
   '/icons/web-app-manifest-192x192.png',
   '/icons/web-app-manifest-512x512.png'
 ]; 
-
 
 self.addEventListener('install', event => { 
   event.waitUntil( 
@@ -16,19 +15,13 @@ self.addEventListener('install', event => {
 });
 
 
-
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys
-        .filter(k => k !== CACHE_NAME && k !== API_CACHE)
-        .map(k => caches.delete(k)))
+      Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)))
     )
-  );
-  self.clients.claim();
+  );  
 });
-
-
 
 self.addEventListener('fetch', event => { 
   
