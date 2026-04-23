@@ -29,6 +29,8 @@ async function render(pageFactory) {
   const pageContent = await pageFactory()
   content.appendChild(pageContent)
 
+  window.scrollTo(0, 0)
+
   NavbarLinkChange()
   FooterLinkBgChange()
 }
